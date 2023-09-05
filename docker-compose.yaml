@@ -1,0 +1,7 @@
+services:
+  roit:
+    image: busybox
+    command: 'true'
+  naw:
+    image: busybox
+    command: 'false'
