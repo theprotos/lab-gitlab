@@ -2,17 +2,18 @@
 
 ## DinD for kubernetes runner
 
-Create <tocken> in Gitlab UI [USER] > [REPO] > [CI/CD Settings] > [New runner]
-
-
-```
-kubectl create ns gitlab
-helm repo add gitlab https://charts.gitlab.io/
-helm repo update
-
-helm upgrade -i gitlab-runner \
-    --set gitlabUrl=https://gitlab.com,runnerRegistrationToken=glrt-9MYXYksQB7MDTpU5xg_y \
-    gitlab/gitlab-runner \
-    -n gitlab \
-    -f values.yaml
-```   
+1. Clone this repo to Gitlab.com project
+2. Create <token> in Gitlab UI [USER] > [REPO] > [CI/CD Settings] > [New runner]
+3. Deploy runner to k8s
+    ```bash
+    kubectl create ns gitlab
+    helm repo add gitlab https://charts.gitlab.io/
+    helm repo update
+    
+    helm upgrade -i gitlab-runner \
+        --set gitlabUrl=https://gitlab.com,runnerRegistrationToken=<token> \
+        gitlab/gitlab-runner \
+        -n gitlab \
+        -f values.yaml
+    ```
+4. CI/CI pipeline should start automatically.
