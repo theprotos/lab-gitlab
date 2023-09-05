@@ -3,7 +3,7 @@
 ## DinD for kubernetes runner
 
 1. Clone this repo to Gitlab.com project
-2. Create <token> in Gitlab UI [USER] > [REPO] > [CI/CD Settings] > [New runner]
+2. Create `<token>` in Gitlab UI [USER] > [REPO] > [CI/CD Settings] > [New runner]
 3. Deploy runner to k8s
     ```bash
     kubectl create ns gitlab
